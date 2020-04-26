@@ -28,12 +28,12 @@
 			{
 				"category": "SuperFile",
 				"command": "superfile.createSpecFile",
-				"title": "Create spec file"
+				"title": "New Spec File"
 			},
 			{
 				"category": "SuperFile",
 				"command": "superfile.createReactComponent",
-				"title": "Create React component file"
+				"title": "New React component File"
 			}
 		],
 		"menus": {
