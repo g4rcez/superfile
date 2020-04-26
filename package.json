@@ -1,0 +1,91 @@
+{
+	"name": "superfile",
+	"author": {
+		"name": "g4rcez",
+		"url": "https://github.com/g4rcez"
+	},
+	"publisher": "g4rcez",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/g4rcez/superfile"
+	},
+	"displayName": "SuperFile",
+	"description": "A simple way to create files based on extension",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.44.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:superfile.createSpecFile",
+		"onCommand:superfile.createReactComponent"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"category": "SuperFile",
+				"command": "superfile.createSpecFile",
+				"title": "Create spec file"
+			},
+			{
+				"category": "SuperFile",
+				"command": "superfile.createReactComponent",
+				"title": "Create React component file"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"group": "navigation@-1",
+					"command": "superfile.createSpecFile"
+				},
+				{
+					"group": "navigation@-1",
+					"command": "superfile.createReactComponent"
+				}
+			]
+		},
+		"configuration": {
+			"type": "object",
+			"title": "SuperFile",
+			"properties": {
+				"superfile.spec": {
+					"scope": "resource",
+					"type": "string",
+					"default": "spec.ts",
+					"description": "Default extension to use on create spec files"
+				},
+				"superfile.rc": {
+					"scope": "resource",
+					"type": "string",
+					"default": "tsx",
+					"description": "Default extension to use on create React files"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint src --ext ts",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile && yarn run lint",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.44.0",
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.2",
+		"@types/node": "^13.11.0",
+		"eslint": "^6.8.0",
+		"@typescript-eslint/parser": "^2.26.0",
+		"@typescript-eslint/eslint-plugin": "^2.26.0",
+		"glob": "^7.1.6",
+		"mocha": "^7.1.1",
+		"typescript": "^3.8.3",
+		"vscode-test": "^1.3.0"
+	}
+}
