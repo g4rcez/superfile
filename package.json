@@ -11,7 +11,7 @@
 	},
 	"displayName": "SuperFile",
 	"description": "A simple way to create files based on extension",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.44.0"
 	},
