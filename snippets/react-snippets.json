@@ -1,0 +1,41 @@
+{
+  "React useEffect": {
+    "scope": "javascript,typescript,typescriptreact,javascriptreact",
+    "prefix": "ueh",
+    "body": [
+      "useEffect(() => {",
+      "\t$0",
+      "}, ${1:[]})"
+    ],
+    "description": "Apply useEffect React hook"
+  },
+  "useState": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "ush",
+    "body": [
+      "const [${1}, set${1/(.*)/${1:/capitalize}/}] = useState($2);"
+    ],
+    "description": "React useState() hook"
+  },
+  "useRef": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "urh",
+    "body": [
+      "const $0 = useRef($1);"
+    ],
+    "description": "React useRef() hook"
+  },
+  "useCallback": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "uch",
+    "body": [
+      "const ${1:memoizedCallback} = useCallback(",
+      "\t() => {",
+      "\t\t${0}",
+      "\t},",
+      "\t[${2}],",
+      ");"
+    ],
+    "description": "React useCallback() hook"
+  }
+}

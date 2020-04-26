@@ -3,6 +3,7 @@ export const DEFAULT_SPEC_EXTENSION = "spec.ts";
 export const DEFAULT_REACT_COMPONENT_EXTENSION = "tsx";
 export const commands = {
   spec: "createSpecFile",
+  json: "createJsonFile",
   reactComponent: "createReactComponent",
 };
 
@@ -13,5 +14,6 @@ export const getCommandName = (key: Commands): string =>
 
 export enum Properties {
   Spec = "spec",
+  Json = "json",
   ReactComponent = "rc",
 }

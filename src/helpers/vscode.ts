@@ -1,9 +1,9 @@
-import * as path from "path";
 import * as fs from "fs";
+import * as path from "path";
 import * as vscode from "vscode";
-import { CreateFile, ArgsPrompt, FromPrompt } from "../global";
-import { fixExtension } from "./fmt";
+import { ArgsPrompt, CreateFile, FromPrompt } from "../global";
 import { Properties } from "./constants";
+import { fixExtension } from "./fmt";
 
 export const getConfigProperty = <T extends string>(property: Properties): T =>
   vscode.workspace.getConfiguration("superfile")[property] as T;
@@ -54,3 +54,23 @@ export const openFile = async (file: string): Promise<void> => {
   const uri = vscode.Uri.file(file);
   await vscode.commands.executeCommand("vscode.open", uri);
 };
+
+export const writeTemplate = (filename: string, code: string) => {
+  vscode.workspace.openTextDocument(vscode.Uri.parse(filename)).then(
+    (textDocument: vscode.TextDocument) => {
+      vscode.window
+        .showTextDocument(textDocument, 1, false)
+        .then((textEditor) => {
+          textEditor.edit((edit) => {
+            edit.insert(new vscode.Position(0, 0), code);
+          });
+        });
+    },
+    (error: any) => {
+      console.error(error);
+    }
+  );
+};
+
+export const formatDocument = () =>
+  vscode.commands.executeCommand("editor.action.formatDocument");

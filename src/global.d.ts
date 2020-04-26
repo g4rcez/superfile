@@ -19,6 +19,7 @@ export type CreateFile = {
   path: string;
   name: string;
   extension: string;
+  template?: string;
 };
 
 export type SubscribeCommands = Array<{

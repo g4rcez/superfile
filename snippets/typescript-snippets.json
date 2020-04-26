@@ -1,0 +1,26 @@
+{
+  "Print to console": {
+    "scope": "javascript,typescript,typescriptreact,javascriptreact",
+    "prefix": "clg",
+    "body": [
+      "console.log($0);"
+    ],
+    "description": "Log output to console"
+  },
+  "Named import": {
+    "scope": "javascript,typescript,typescriptreact,javascriptreact",
+    "prefix": "inm",
+    "body": [
+      "import { $0 } from \"$1\";"
+    ],
+    "description": "Named import"
+  },
+  "Default import": {
+    "scope": "javascript,typescript,typescriptreact,javascriptreact",
+    "prefix": "imp",
+    "body": [
+      "import $0 from \"$1\";"
+    ],
+    "description": "Default import"
+  }
+}

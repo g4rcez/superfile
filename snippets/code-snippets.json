@@ -1,0 +1,6 @@
+{
+  "Print file name": {
+    "prefix": "filename",
+    "body": "${TM_FILENAME_BASE}"
+  }
+}
