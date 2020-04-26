@@ -20,6 +20,7 @@
 	],
 	"activationEvents": [
 		"onCommand:superfile.createSpecFile",
+		"onCommand:superfile.createJsonFile",
 		"onCommand:superfile.createReactComponent"
 	],
 	"main": "./out/extension.js",
@@ -27,24 +28,36 @@
 		"commands": [
 			{
 				"category": "SuperFile",
-				"command": "superfile.createSpecFile",
-				"title": "New Spec File"
+				"command": "superfile.createJsonFile",
+				"title": "New JSON"
 			},
 			{
 				"category": "SuperFile",
 				"command": "superfile.createReactComponent",
-				"title": "New React component File"
+				"title": "New React component"
+			},
+			{
+				"category": "SuperFile",
+				"command": "superfile.createSpecFile",
+				"title": "New Spec/Test"
 			}
 		],
+		"superfile": {
+			"path": "./snippets/code-snippets.json"
+		},
 		"menus": {
 			"explorer/context": [
 				{
-					"group": "navigation@-1",
-					"command": "superfile.createSpecFile"
+					"group": "navigation@-0",
+					"command": "superfile.createJsonFile"
 				},
 				{
-					"group": "navigation@-1",
+					"group": "navigation@-0",
 					"command": "superfile.createReactComponent"
+				},
+				{
+					"group": "navigation@-0",
+					"command": "superfile.createSpecFile"
 				}
 			]
 		},
@@ -52,20 +65,52 @@
 			"type": "object",
 			"title": "SuperFile",
 			"properties": {
-				"superfile.spec": {
+				"superfile.json": {
 					"scope": "resource",
 					"type": "string",
-					"default": "spec.ts",
-					"description": "Default extension to use on create spec files"
+					"default": "json",
+					"description": "Default extension to use on create JSON files"
 				},
 				"superfile.rc": {
 					"scope": "resource",
 					"type": "string",
 					"default": "tsx",
 					"description": "Default extension to use on create React files"
+				},
+				"superfile.spec": {
+					"scope": "resource",
+					"type": "string",
+					"default": "spec.ts",
+					"description": "Default extension to use on create Spec/Test files"
 				}
 			}
-		}
+		},
+		"snippets": [
+			{
+				"language": "typescript",
+				"path": "./snippets/typescript-snippets.json"
+			},
+			{
+				"language": "typescriptreact",
+				"path": "./snippets/typescript-snippets.json"
+			},
+			{
+				"language": "typescriptreact",
+				"path": "./snippets/react-snippets.json"
+			},
+			{
+				"language": "javascriptreact",
+				"path": "./snippets/typescript-snippets.json"
+			},
+			{
+				"language": "javascriptreact",
+				"path": "./snippets/react-snippets.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./snippets/typescript-snippets.json"
+			}
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "yarn run compile",
