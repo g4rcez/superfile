@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { ArgsPrompt } from "../global";
+import { ArgsPrompt, FunctionTemplate } from "../global";
 import { Properties } from "../helpers/constants";
 import {
   createFile,
@@ -16,7 +16,7 @@ type CreateFileTemplate = {
   ext: string;
   promptTitle: string;
   defaultValue: string;
-  template?: (name: string) => string;
+  template?: FunctionTemplate;
 };
 export const createTemplateFile = (
   ctx: vscode.ExtensionContext,
@@ -39,7 +39,10 @@ export const createTemplateFile = (
   if (newFile !== null) {
     await openFile(newFile);
     if (template.template) {
-      await writeTemplate(newFile, template.template(name));
+      await writeTemplate(
+        newFile,
+        template.template({ extension, filename: name })
+      );
       await formatDocument();
       await formatDocument();
       const editor = vscode.window.activeTextEditor;
