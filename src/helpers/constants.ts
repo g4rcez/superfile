@@ -1,9 +1,14 @@
 export const VSCODE_EXTENSION_NAME = "superfile";
-export const DEFAULT_SPEC_EXTENSION = "spec.ts";
-export const DEFAULT_REACT_COMPONENT_EXTENSION = "tsx";
+
+export const SPEC_EXTENSION = "spec.ts";
+export const JSON_EXTENSION = "JSON";
+export const REACT_COMPONENT_EXTENSION = "tsx";
+
 export const commands = {
   spec: "createSpecFile",
   json: "createJsonFile",
+  javascript: "createJavascriptFile",
+  typescript: "createTypescriptFile",
   reactComponent: "createReactComponent",
 };
 
@@ -14,6 +19,8 @@ export const getCommandName = (key: Commands): string =>
 
 export enum Properties {
   Spec = "spec",
+  Javascript = "javascript",
+  Typescript = "typescript",
   Json = "json",
   ReactComponent = "rc",
 }

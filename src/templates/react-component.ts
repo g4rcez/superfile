@@ -1,8 +1,13 @@
 import { toPascalCase } from "../helpers/fmt";
+import { FunctionTemplate } from "../global";
 
-export const ReactComponentTypescriptTemplate = (name: string) => {
+export const ReactComponentTypescriptTemplate: FunctionTemplate = ({
+  extension,
+  filename: name,
+}) => {
   const formatName = toPascalCase(name);
-  return `\rimport React from "react";
+  if (extension.endsWith(".tsx")) {
+    return `\rimport React from "react";
   
   \rtype Props = {
   
@@ -14,4 +19,6 @@ export const ReactComponentTypescriptTemplate = (name: string) => {
   
   \rexport default ${toPascalCase(name)};
   `;
+  }
+  return "";
 };

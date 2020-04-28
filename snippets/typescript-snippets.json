@@ -3,7 +3,7 @@
     "scope": "javascript,typescript,typescriptreact,javascriptreact",
     "prefix": "clg",
     "body": [
-      "console.log($0);"
+      "console.log($0)"
     ],
     "description": "Log output to console"
   },
