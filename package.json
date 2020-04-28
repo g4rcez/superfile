@@ -19,22 +19,34 @@
 		"Other"
 	],
 	"activationEvents": [
+		"onCommand:superfile.createTypescriptFile",
+		"onCommand:superfile.createJavascriptFile",
+		"onCommand:superfile.createReactComponent",
 		"onCommand:superfile.createSpecFile",
-		"onCommand:superfile.createJsonFile",
-		"onCommand:superfile.createReactComponent"
+		"onCommand:superfile.createJsonFile"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
 				"category": "SuperFile",
-				"command": "superfile.createJsonFile",
-				"title": "New JSON"
+				"command": "superfile.createReactComponent",
+				"title": "New React component"
 			},
 			{
 				"category": "SuperFile",
-				"command": "superfile.createReactComponent",
-				"title": "New React component"
+				"command": "superfile.createTypescriptFile",
+				"title": "New Typescript File"
+			},
+			{
+				"category": "SuperFile",
+				"command": "superfile.createJavascriptFile",
+				"title": "New Javascript File"
+			},
+			{
+				"category": "SuperFile",
+				"command": "superfile.createJsonFile",
+				"title": "New JSON"
 			},
 			{
 				"category": "SuperFile",
@@ -49,14 +61,22 @@
 			"explorer/context": [
 				{
 					"group": "navigation@-0",
-					"command": "superfile.createJsonFile"
-				},
-				{
-					"group": "navigation@-0",
 					"command": "superfile.createReactComponent"
 				},
 				{
-					"group": "navigation@-0",
+					"group": "navigation@-1",
+					"command": "superfile.createTypescriptFile"
+				},
+				{
+					"group": "navigation@-2",
+					"command": "superfile.createJavascriptFile"
+				},
+				{
+					"group": "navigation@-3",
+					"command": "superfile.createJsonFile"
+				},
+				{
+					"group": "navigation@-4",
 					"command": "superfile.createSpecFile"
 				}
 			]
@@ -67,7 +87,10 @@
 			"properties": {
 				"superfile.json": {
 					"scope": "resource",
-					"type": "string",
+					"type": [
+						"json",
+						"jsonc"
+					],
 					"default": "json",
 					"description": "Default extension to use on create JSON files"
 				},
@@ -76,6 +99,18 @@
 					"type": "string",
 					"default": "tsx",
 					"description": "Default extension to use on create React files"
+				},
+				"superfile.javascript": {
+					"scope": "resource",
+					"type": "string",
+					"default": "js",
+					"description": "Default extension to use on create Javascript files"
+				},
+				"superfile.typescript": {
+					"scope": "resource",
+					"type": "string",
+					"default": "ts",
+					"description": "Default extension to use on create Typescript files"
 				},
 				"superfile.spec": {
 					"scope": "resource",
