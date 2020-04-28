@@ -15,11 +15,18 @@ export type FromPrompt = {
   value?: string;
 };
 
+type TemplateArgs = {
+  extension: string;
+  filename: string;
+};
+
+export type FunctionTemplate = (args: TemplateArgs) => string;
+
 export type CreateFile = {
   path: string;
   name: string;
   extension: string;
-  template?: string;
+  template?: FunctionTemplate;
 };
 
 export type SubscribeCommands = Array<{
