@@ -1,0 +1,17 @@
+{
+    "Cypress Init Test": {
+        "scope": "typescript,javascript",
+        "prefix": "cytest",
+        "description": "Init cypress test",
+        "body": [
+            "describe(\"$1\", () => {",
+            "\tbeforeEach(() => {",
+            "\t\tcy.visit(\"http://localhost:3000/$1\");",
+            "\t});",
+            "\tit(\"$2\", () => {",
+            "\t\tcy.get(\"$0\")",
+            "\t});",
+            "});"
+        ]
+    }
+}

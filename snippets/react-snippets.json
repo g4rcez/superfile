@@ -1,16 +1,16 @@
 {
   "React useEffect": {
-    "scope": "javascript,typescriptreact,javascriptreact",
+    "scope": "javascript,typescript,typescriptreact,javascriptreact",
     "prefix": "ueh",
     "body": [
       "useEffect(() => {",
       "\t$0",
-      "}, ${1:[]})"
+      "}, [${1}])"
     ],
     "description": "Apply useEffect React hook"
   },
   "useState": {
-    "scope": "javascript,javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,typescriptreact,javascriptreact",
     "prefix": "ush",
     "body": [
       "const [${1}, set${1/(.*)/${1:/capitalize}/}] = useState($2);"
@@ -18,7 +18,7 @@
     "description": "React useState() hook"
   },
   "useRef": {
-    "scope": "javascript,javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,typescriptreact,javascriptreact",
     "prefix": "urh",
     "body": [
       "const $0 = useRef($1);"
@@ -26,7 +26,7 @@
     "description": "React useRef() hook"
   },
   "useCallback": {
-    "scope": "javascript,javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,typescriptreact,javascriptreact",
     "prefix": "uch",
     "body": [
       "const ${1:memoCallback} = useCallback(",
@@ -37,5 +37,18 @@
       ");"
     ],
     "description": "React useCallback() hook"
+  },
+  "useMemo": {
+    "scope": "javascript,typescript,typescriptreact,javascriptreact",
+    "prefix": "umh",
+    "body": [
+      "const ${1:memoize} = useMemo(",
+      "\t() => {",
+      "\t\t${0}",
+      "\t},",
+      "\t[${2}],",
+      ");"
+    ],
+    "description": "React useMemo() hook"
   }
 }
