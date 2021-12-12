@@ -1,11 +1,17 @@
 export const VSCODE_EXTENSION_NAME = "superfile";
 
-export const SPEC_EXTENSION = "spec.ts";
-export const JSON_EXTENSION = "JSON";
-export const REACT_COMPONENT_EXTENSION = "tsx";
+export enum Extension {
+  CyTest = "spec.ts",
+  Json = "json",
+  Tsx = "tsx",
+  Jest = "test.ts",
+  View = "view.tsx",
+}
 
 export const commands = {
   spec: "createSpecFile",
+  view: "createViewFile",
+  jest: "createJestFile",
   json: "createJsonFile",
   javascript: "createJavascriptFile",
   typescript: "createTypescriptFile",
@@ -19,6 +25,7 @@ export const getCommandName = (key: Commands): string =>
 
 export enum Properties {
   Spec = "spec",
+  Jest = "jest",
   Javascript = "javascript",
   Typescript = "typescript",
   Json = "json",

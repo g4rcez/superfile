@@ -11,7 +11,7 @@
     "scope": "javascript,typescript,typescriptreact,javascriptreact",
     "prefix": "clgj",
     "body": [
-      "console.log(JSON.parse($0, null, 2))"
+      "console.log(JSON.stringify($0, null, 2))"
     ],
     "description": "Log output to console in JSON format"
   },

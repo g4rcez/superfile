@@ -11,7 +11,7 @@
 	},
 	"displayName": "SuperFile",
 	"description": "A simple way to create files based on extension",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"engines": {
 		"vscode": "^1.44.0"
 	},
@@ -32,6 +32,11 @@
 				"category": "SuperFile",
 				"command": "superfile.createReactComponent",
 				"title": "New React component"
+			},
+			{
+				"category": "SuperFile",
+				"command": "superfile.createViewFile",
+				"title": "New React Component view File"
 			},
 			{
 				"category": "SuperFile",
@@ -134,6 +139,10 @@
 				"path": "./snippets/react-snippets.json"
 			},
 			{
+				"language": "typescript",
+				"path": "./snippets/react-snippets.json"
+			},
+			{
 				"language": "javascriptreact",
 				"path": "./snippets/typescript-snippets.json"
 			},
@@ -144,6 +153,9 @@
 			{
 				"language": "javascript",
 				"path": "./snippets/typescript-snippets.json"
+			},
+			{
+				"path": "./snippets/code-snippets.json"
 			}
 		]
 	},

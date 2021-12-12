@@ -15,16 +15,16 @@ type CreateFileTemplate = {
   propertyConfig: Properties;
   ext: string;
   promptTitle: string;
-  defaultValue: string;
   template?: FunctionTemplate;
 };
 export const createTemplateFile =
   (ctx: vscode.ExtensionContext, template: CreateFileTemplate) =>
   async (args: ArgsPrompt) => {
     const root = await getContextPath(ctx, args);
-    const name =
-      (await getFromPrompt({ title: "Filename", value: "" })) ||
-      template.defaultValue;
+    const name = await getFromPrompt({ title: "Filename", value: "" });
+    if (name === "") {
+      return;
+    }
     let extension = getConfigProperty<string>(template.propertyConfig);
     if (extension === "") {
       extension = await getFromPrompt({

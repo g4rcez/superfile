@@ -1,13 +1,7 @@
 import * as vscode from "vscode";
 import { createTemplateFile } from "./commands/create-template-file";
 import { SubscribeCommands } from "./global";
-import {
-  getCommandName,
-  Properties,
-  SPEC_EXTENSION,
-  REACT_COMPONENT_EXTENSION,
-  JSON_EXTENSION,
-} from "./helpers/constants";
+import { getCommandName, Properties, Extension } from "./helpers/constants";
 import { ReactComponentTypescriptTemplate } from "./templates/react-component";
 
 export function activate(context: vscode.ExtensionContext) {
@@ -15,8 +9,7 @@ export function activate(context: vscode.ExtensionContext) {
     {
       name: "reactComponent",
       cmd: createTemplateFile(context, {
-        defaultValue: "component",
-        ext: REACT_COMPONENT_EXTENSION,
+        ext: Extension.Tsx,
         template: ReactComponentTypescriptTemplate,
         promptTitle: "React component filename",
         propertyConfig: Properties.ReactComponent,
@@ -25,7 +18,6 @@ export function activate(context: vscode.ExtensionContext) {
     {
       name: "typescript",
       cmd: createTemplateFile(context, {
-        defaultValue: "index",
         ext: "ts",
         promptTitle: "Typescript filename",
         propertyConfig: Properties.Typescript,
@@ -34,7 +26,6 @@ export function activate(context: vscode.ExtensionContext) {
     {
       name: "javascript",
       cmd: createTemplateFile(context, {
-        defaultValue: "index",
         ext: "js",
         promptTitle: "Javascript filename",
         propertyConfig: Properties.Javascript,
@@ -43,8 +34,7 @@ export function activate(context: vscode.ExtensionContext) {
     {
       name: "json",
       cmd: createTemplateFile(context, {
-        defaultValue: "data",
-        ext: JSON_EXTENSION,
+        ext: Extension.Json,
         promptTitle: "JSON filename",
         propertyConfig: Properties.Json,
       }),
@@ -52,10 +42,25 @@ export function activate(context: vscode.ExtensionContext) {
     {
       name: "spec",
       cmd: createTemplateFile(context, {
-        defaultValue: "test",
-        ext: SPEC_EXTENSION,
-        promptTitle: "Test filename",
+        ext: Extension.CyTest,
+        promptTitle: "Test(Cypress) filename",
         propertyConfig: Properties.Spec,
+      }),
+    },
+    {
+      name: "jest",
+      cmd: createTemplateFile(context, {
+        ext: Extension.Jest,
+        promptTitle: "Test(Jest) filename",
+        propertyConfig: Properties.Jest,
+      }),
+    },
+    {
+      name: "view",
+      cmd: createTemplateFile(context, {
+        ext: Extension.View,
+        promptTitle: "View (ReactTypescript component) filename",
+        propertyConfig: Properties.ReactComponent,
       }),
     },
   ];
